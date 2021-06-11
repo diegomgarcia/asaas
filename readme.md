@@ -8,8 +8,7 @@ Any help is appreciated! Comment, suggestions, issues, PR's! Give us a star to h
 
 The goal of this project is to provide a complete set of workflows to work with AsaaS payment gateway.
 
-
-##Currently supported features
+## Currently supported features
 
 - Add Customer
 - Update Customer
