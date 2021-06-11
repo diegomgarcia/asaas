@@ -20,7 +20,7 @@ namespace AsaaS
         public static void AddAsaaS(this IServiceCollection services, Settings settings)
         {
             services.AddSingleton<ISettingsService>(s => new SettingsService(settings));
-            services.AddTransient<IRepositoryService<Customer>, CustomerRepositoryService>();
+            services.AddTransient<ICustomerService, CustomerRepositoryService>();
             services.AddTransient<ISubscriptionService, SubscriptionService>();
         }
     }
