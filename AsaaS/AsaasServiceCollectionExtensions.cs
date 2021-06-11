@@ -1,6 +1,5 @@
 using AsaaS.Common;
 using AsaaS.Contracts;
-using AsaaS.Entities;
 using AsaaS.Services;
 using Microsoft.Extensions.DependencyInjection;
 
