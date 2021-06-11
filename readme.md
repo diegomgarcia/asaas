@@ -58,13 +58,13 @@ You can also show support by showing on your repository that you use this lib on
 After that just add in your class constructor the reference to the service that you want to use and the DI will do the rest:
 
 ```
-  using AsaaS.Services;
+  using AsaaS.Contracts;
   
   SomeClass class
   {
-    private readonly IRepositoryService<Customer> _asaasCustomerService;
+    private readonly ICustomerService _asaasCustomerService;
     
-    SomeClass(IRepositoryService<Customer> asaasCustomerService){
+    SomeClass(ICustomerService asaasCustomerService){
         _asaasCustomerService = asaasCustomerService;
     }
     
