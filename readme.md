@@ -39,7 +39,7 @@ You can also show support by showing on your repository that you use this lib on
 
 2- Register your sandbox access token using the command: 
 ```
-  dotnet user secrets add ACCESS_TOKEN <your-api-key>
+  dotnet user-secrets set "ACCESS_TOKEN" "<your-api-key>"
 ```
 
 3- Run the unit tests for the feature that you want to use.
