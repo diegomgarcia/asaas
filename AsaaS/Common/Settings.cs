@@ -6,16 +6,6 @@ namespace AsaaS.Common
     {
         public string AccessToken { get; set; }
         public bool Sandbox { get; set; }
-
-        public string Url
-        {
-            get
-            {
-                if (Sandbox)
-                  return Urls.SandboxApiUrl;
-                
-                return Urls.ApiUrl;
-            }
-        }
+        public string Url => Sandbox ? Urls.SandboxApiUrl : Urls.ApiUrl;
     }
 }
