@@ -15,13 +15,15 @@ The goal of this project is to provide a complete set of workflows to work with 
 - Delete Customer
 - Select Customer By Id
 
----
 
 - Add Subscription
 - Update Subscription
 - Delete Subscription
 - Select Subscription By Id
 - Select Subscription Payments
+
+
+- Receive payment updates callbacks
 
 ## Support us by becoming a patron on Patreon
 
@@ -42,9 +44,7 @@ You can also show support by showing on your repository that you use this lib on
   dotnet user-secrets set "ACCESS_TOKEN" "<your-api-key>"
 ```
 
-3- Run the unit tests for the feature that you want to use.
-
-*** To use with your dotnet project add the follow code to your Startup class:  
+3- Add the follow code to your Startup class:  
 ````
     services.AddAsaaS(
         new Settings 
@@ -55,7 +55,7 @@ You can also show support by showing on your repository that you use this lib on
     );
 ````
 
-After that just add in your class constructor the reference to the service that you want to use and the DI will do the rest:
+4- Add in your class constructor the reference to the service that you want to use and the DI will do the rest:
 
 ```
   using AsaaS.Contracts;
@@ -74,3 +74,16 @@ After that just add in your class constructor the reference to the service that 
   } 
 ```
 
+5- Receive the callback from AsaaS in your method declaring as above:
+
+```
+public async Task<IActionResult> Notification([FromBody] PaymentEvent paymentEvent, [FromHeader(Name = "ASAAS-ACCESS-TOKEN")] string accessToken){
+  if (accessToken != "<your custom app token>") {
+    Console.WriteLine("Invalid request from other service!");
+    return Forbid();
+  }
+
+  //Use paymentEvent to read the details of the transaction received.
+  //To ensure that its not a fake transaction fromo someone else, we recomend to request the payment from asaas with the id comming from the paymentEvent. 
+}
+```
