@@ -11,6 +11,7 @@ namespace AsaaS.Entities
         DEBIT_CARD,
         UNDEFINED,
         TRANSFER,
-        DEPOSIT
+        DEPOSIT,
+        PIX
     }
 }
